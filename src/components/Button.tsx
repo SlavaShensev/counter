@@ -6,13 +6,13 @@ type ButtonType = {
     disabled: boolean
 }
 
+const Button = ({setCounter, disabled, title}: ButtonType) => (
+    <button
+        onClick={setCounter}
+        disabled={disabled}
+    >{title}
+    </button>
+)
 
-function Button(props: ButtonType) {
-    return <button onClick={() => {
-        props.setCounter()
-    }}
-                   disabled={props.disabled}
-    >{props.title}</button>
-}
 
 export default Button;

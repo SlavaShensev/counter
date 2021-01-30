@@ -2,18 +2,16 @@ import React from 'react';
 
 type ScoreboardType = {
     scoreValue: number
-    onRedClass: () => string | undefined
+    onRedClass:  string
 
 }
 
 
-function Scoreboard(props: ScoreboardType) {
-   const onRedClassHandler = props.onRedClass()
-    return (
-        <div className={onRedClassHandler}>
-            <h1>{props.scoreValue}</h1>
-        </div>
-    )
-}
+const Scoreboard = ({onRedClass, scoreValue}: ScoreboardType) =>  (
+    <div className={onRedClass}>
+        <h1>{scoreValue}</h1>
+    </div>
+
+)
 
 export default Scoreboard;

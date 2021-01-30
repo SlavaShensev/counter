@@ -3,16 +3,13 @@ import './App.css';
 import Scoreboard from './components/Scoreboard';
 import Button from "./components/Button";
 
-
 function App() {
 
-    let [counter, setCounter] = useState<number>(0)
+    const [counter, setCounter] = useState<number>(0)
 
-    const setCounterHandler = () => {
-        if (counter <= 4) setCounter(counter + 1)
-    }
+    const setCounterHandler = () => counter <= 4 && setCounter(counter + 1)
 
-    const onRedClass = () => counter === 5 ? 'red' : ''
+    const onRedClass = counter === 5 ? 'red' : ''
 
     const stopSetCounter = () => setCounter(0)
 
