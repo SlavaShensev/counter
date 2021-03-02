@@ -3,9 +3,7 @@ import React from 'react';
 type ScoreboardType = {
     scoreValue: number
     onRedClass:  string
-
 }
-
 
 const Scoreboard = ({onRedClass, scoreValue}: ScoreboardType) =>  (
     <div className={onRedClass}>

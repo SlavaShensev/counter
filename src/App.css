@@ -1,16 +1,26 @@
+* {
+    margin: 20px;
+}
 body {
-    background: #515151;
-    border: 3px solid black;
-    width: 500px;
-    height: 300px;
-    margin: 0 auto;
-    color: darkblue;
+    background: #fff;
 }
 
 .App {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    color: black;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.resultBoard {
+    border: 2px solid black;
+    width: 450px;
+    height: 350px;
+}
+
+.settingBoard {
+    border: 2px solid black;
+    width: 450px;
+    height: 350px;
 }
 
 .red {
