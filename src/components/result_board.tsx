@@ -5,16 +5,14 @@ type ResultBoardPropsType = {}
 const ResultBoard = (props: ResultBoardPropsType) => {
     return (
         <div className={'resultBoard'}>
-            <div>
+            <div className={'resultBoardScreen'}>
                 //code
             </div>
-            <div>
-                <button>
+            <div className={'buttonBoardScreen'} >
+                <button className={'incButtonBoardScreen'} >
                     inc
                 </button>
-            </div>
-            <div>
-                <button>
+                <button className={'resButtonBoardScreen'} >
                     reset
                 </button>
             </div>

@@ -1,6 +1,3 @@
-* {
-    margin: 20px;
-}
 body {
     background: #fff;
 }
@@ -11,16 +8,52 @@ body {
     grid-template-columns: 50% 50%;
 }
 
-.resultBoard {
+.settingBoard {
+    margin: 20px auto;
     border: 2px solid black;
     width: 450px;
     height: 350px;
 }
 
-.settingBoard {
+.resultBoard {
+    margin: 20px auto;
     border: 2px solid black;
     width: 450px;
     height: 350px;
+}
+
+.resultBoardScreen {
+    border: 2px solid black;
+    margin: 5px;
+    padding: 2px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
+.buttonBoardScreen {
+    margin: 15px 5px 15px;
+    padding: 2px;
+    border: 2px solid black;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.incButtonBoardScreen {
+    margin: 25px auto;
+    height: 50px;
+    width: 100px;
+    font-size: 30px;
+}
+
+.resButtonBoardScreen {
+    margin: 25px auto;
+    height: 50px;
+    width: 100px;
+    font-size: 30px;
 }
 
 .red {
