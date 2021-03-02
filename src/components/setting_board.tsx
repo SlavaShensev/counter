@@ -8,13 +8,13 @@ const SettingBoard = () => {
                     <p>
                         max value
                     </p>
-                    <input/>
+                    <input type={'number'} />
                 </div>
                 <div className={'startValue'} >
                     <p>
                         start value
                     </p>
-                    <input/>
+                    <input type={'number'} />
                 </div>
             </div>
             <div className={'buttonBoardScreen'} >

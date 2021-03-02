@@ -68,11 +68,11 @@ body {
     margin: 5px;
     padding: 2px;
     height: 200px;
-    display: flex;
+    display: grid;
     justify-content: center;
     align-items: center;
     font-size: 11px;
-    grid-column-gap: 10px;
+    grid-template-columns: 200px 200px;
 }
 
 .maxValue {
