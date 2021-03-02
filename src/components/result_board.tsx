@@ -8,7 +8,7 @@ const ResultBoard = (props: ResultBoardPropsType) => {
             <div className={'resultBoardScreen'}>
                 //code
             </div>
-            <div className={'buttonBoardScreen'} >
+            <div className={'buttonsBoardScreen'} >
                 <button className={'incButtonBoardScreen'} >
                     inc
                 </button>
