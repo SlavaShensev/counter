@@ -29,12 +29,13 @@ function App() {
     //
     // );
 
-
     const [value, setValue] = useState(0)
+
+
 
     return (
         <div className={'App'}>
-            <SettingBoard/>
+            <SettingBoard setting={} />
             <ResultBoard value={value}
                          setValue={setValue}
             />

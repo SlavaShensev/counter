@@ -6,6 +6,10 @@ type ResultBoardPropsType = {
 }
 
 const ResultBoard = (props: ResultBoardPropsType) => {
+    const setValue = props.setValue
+    const value = props.value
+    const setValueHandler = () => setValue(value + 1)
+    const clearValueHandler = () => setValue(0)
     return (
         <div className={'resultBoard'}>
             <div className={'resultBoardScreen'}>
@@ -13,12 +17,12 @@ const ResultBoard = (props: ResultBoardPropsType) => {
             </div>
             <div className={'buttonsBoardScreen'}>
                 <button className={'incButtonBoardScreen'}
-                        onClick={() => props.setValue(props.value + 1)}
+                        onClick={setValueHandler}
                 >
                     inc
                 </button>
                 <button className={'resButtonBoardScreen'}
-                        onClick={()=>props.setValue(0)}
+                        onClick={clearValueHandler}
                 >
                     reset
                 </button>
