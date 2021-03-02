@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { ChangeEvent } from "react";
 
 type SettingBoardPropsType = {
     setting: (maxValue: number, startValue: number) => void
@@ -8,9 +9,17 @@ const SettingBoard = (props: SettingBoardPropsType) => {
     const setting = props.setting
     const [maxValueInput, setMaxValueInput] = useState(0)
     const [startValueInput, setStartValueInput] = useState(0)
-    const setMaxValueInputHandler = () => setMaxValueInput(maxValueInput)
-    const setStartValueInputHandler = () => setStartValueInput(startValueInput)
-    const settingHandler = () => setting(maxValueInput, startValueInput)
+    const setMaxValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setMaxValueInput(e.currentTarget.valueAsNumber)
+    }
+    const setStartValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setStartValueInput(e.currentTarget.valueAsNumber)
+    }
+    const settingHandler = () => {
+
+        setting(maxValueInput, startValueInput)
+
+    }
     return (
         <div className={'settingBoard'}>
             <div className={'settingBoardScreen'}>

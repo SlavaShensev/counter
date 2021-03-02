@@ -31,11 +31,15 @@ function App() {
 
     const [value, setValue] = useState(0)
 
+    const setting = (maxValue: number, startValue: number) => {
 
+        setValue(startValue)
+
+    }
 
     return (
         <div className={'App'}>
-            <SettingBoard setting={} />
+            <SettingBoard setting={setting}/>
             <ResultBoard value={value}
                          setValue={setValue}
             />
