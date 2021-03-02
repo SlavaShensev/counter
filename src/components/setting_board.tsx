@@ -1,24 +1,26 @@
 import React from "react";
 
-const SettingBoard = () => {
+type SettingBoardPropsType = {}
+
+const SettingBoard = (props: SettingBoardPropsType) => {
     return (
-        <div className={'settingBoard'} >
+        <div className={'settingBoard'}>
             <div className={'settingBoardScreen'}>
-                <div className={'maxValue'} >
+                <div className={'maxValue'}>
                     <p>
                         max value
                     </p>
-                    <input type={'number'} />
+                    <input type={'number'}/>
                 </div>
-                <div className={'startValue'} >
+                <div className={'startValue'}>
                     <p>
                         start value
                     </p>
-                    <input type={'number'} />
+                    <input type={'number'}/>
                 </div>
             </div>
-            <div className={'buttonBoardScreen'} >
-                <button className={'settingButton'} >
+            <div className={'buttonBoardScreen'}>
+                <button className={'settingButton'}>
                     set
                 </button>
             </div>

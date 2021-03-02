@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import ResultBoard from "./components/result_board";
 import SettingBoard from "./components/setting_board";
@@ -28,10 +28,16 @@ function App() {
     //     {/*</div>*/}
     //
     // );
+
+
+    const [value, setValue] = useState(0)
+
     return (
-        <div className={'App'} >
-            <SettingBoard />
-            <ResultBoard />
+        <div className={'App'}>
+            <SettingBoard/>
+            <ResultBoard value={value}
+                         setValue={setValue}
+            />
         </div>
     )
 }
