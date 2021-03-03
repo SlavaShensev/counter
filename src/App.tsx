@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import ResultBoard from "./components/result_board";
 import SettingBoard from "./components/setting_board";
@@ -32,10 +32,20 @@ function App() {
     const [value, setValue] = useState(0)
 
     const setting = (maxValue: number, startValue: number) => {
-
         setValue(startValue)
-
     }
+
+    useEffect(()=>{
+        const valueUsString = localStorage.getItem('valueCounter')
+        if(valueUsString) {
+            const newValue = JSON.parse(valueUsString)
+            setValue(newValue)
+        }
+    },[])
+
+    useEffect(() => {
+        localStorage.setItem('valueCounter', JSON.stringify(value))
+    }, [value])
 
     return (
         <div className={'App'}>

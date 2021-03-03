@@ -8,8 +8,13 @@ type ResultBoardPropsType = {
 const ResultBoard = (props: ResultBoardPropsType) => {
     const setValue = props.setValue
     const value = props.value
-    const setValueHandler = () => setValue(value + 1)
-    const clearValueHandler = () => setValue(0)
+    const setValueHandler = () => {
+        setValue(value + 1)
+    }
+    const clearValueHandler = () => {
+        setValue(0)
+        localStorage.clear()
+    }
     return (
         <div className={'resultBoard'}>
             <div className={'resultBoardScreen'}>
