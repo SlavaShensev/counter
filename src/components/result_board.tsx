@@ -1,14 +1,13 @@
 import React from "react";
 import Button from "./battonCounter";
+import '../App.css';
 
 type ResultBoardPropsType = {
     value: number
     setValue: (n: number) => void
 }
 
-const ResultBoard = (props: ResultBoardPropsType) => {
-    const setValue = props.setValue
-    const value = props.value
+const ResultBoard = ({setValue, value}: ResultBoardPropsType) => {
     const setValueHandler = () => {
         setValue(value + 1)
     }
@@ -19,7 +18,7 @@ const ResultBoard = (props: ResultBoardPropsType) => {
     return (
         <div className={'resultBoard'}>
             <div className={'resultBoardScreen'}>
-                {props.value}
+                {value}
             </div>
 
             <div className={'buttonsBoardScreen'}>

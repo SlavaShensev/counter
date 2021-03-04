@@ -9,10 +9,7 @@ type SettingBoardPropsType = {
     setting: (maxValue: number, startValue: number) => void
 }
 
-const SettingBoard = (props: SettingBoardPropsType) => {
-    const setting = props.setting
-    const valueStart = props.valueStart
-    const valueMax = props.valueMax
+const SettingBoard = ({setting, valueStart, valueMax}: SettingBoardPropsType) => {
     const [maxValueInput, setMaxValueInput] = useState(0)
     const [startValueInput, setStartValueInput] = useState(0)
     const setMaxValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {

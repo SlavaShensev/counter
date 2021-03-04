@@ -10,6 +10,7 @@ function App() {
     const [valueMax, setValueMax] = useState(0)
 
     console.log(valueMax)
+    console.log(valueStart)
 
     const setting = (maxValue: number, startValue: number) => {
         setValueStart(startValue)
