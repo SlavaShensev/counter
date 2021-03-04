@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./battonCounter";
 
 type ResultBoardPropsType = {
     value: number
@@ -20,17 +21,16 @@ const ResultBoard = (props: ResultBoardPropsType) => {
             <div className={'resultBoardScreen'}>
                 {props.value}
             </div>
+
             <div className={'buttonsBoardScreen'}>
-                <button className={'incButtonBoardScreen'}
-                        onClick={setValueHandler}
-                >
-                    inc
-                </button>
-                <button className={'resButtonBoardScreen'}
-                        onClick={clearValueHandler}
-                >
-                    reset
-                </button>
+                <div className={'incButtonBoardScreen'}>
+                    <Button value={'inc'} callBack={setValueHandler}/>
+                </div>
+
+                <div className={'resButtonBoardScreen'}>
+                    <Button value={'reset'} callBack={clearValueHandler}/>
+                </div>
+
             </div>
         </div>
     )

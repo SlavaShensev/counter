@@ -1,12 +1,18 @@
 import React, {useState} from "react";
 import { ChangeEvent } from "react";
+import Button from "./battonCounter";
+import '../App.css';
 
 type SettingBoardPropsType = {
+    valueStart: number
+    valueMax: number
     setting: (maxValue: number, startValue: number) => void
 }
 
 const SettingBoard = (props: SettingBoardPropsType) => {
     const setting = props.setting
+    const valueStart = props.valueStart
+    const valueMax = props.valueMax
     const [maxValueInput, setMaxValueInput] = useState(0)
     const [startValueInput, setStartValueInput] = useState(0)
     const setMaxValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -16,9 +22,7 @@ const SettingBoard = (props: SettingBoardPropsType) => {
         setStartValueInput(e.currentTarget.valueAsNumber)
     }
     const settingHandler = () => {
-
         setting(maxValueInput, startValueInput)
-
     }
     return (
         <div className={'settingBoard'}>
@@ -28,7 +32,7 @@ const SettingBoard = (props: SettingBoardPropsType) => {
                         max value
                     </p>
                     <input type={'number'}
-                           value={maxValueInput}
+                           value={valueMax}
                            onChange={setMaxValueInputHandler}
                     />
                 </div>
@@ -37,17 +41,17 @@ const SettingBoard = (props: SettingBoardPropsType) => {
                         start value
                     </p>
                     <input type={'number'}
-                           value={startValueInput}
+                           value={valueStart}
                            onChange={setStartValueInputHandler}
                     />
                 </div>
             </div>
             <div className={'buttonBoardScreen'}>
-                <button className={'settingButton'}
-                        onClick={settingHandler}
-                >
-                    set
-                </button>
+                <div className={'settingButton'} >
+                    <Button value={'set'}
+                            callBack={settingHandler}
+                    />
+                </div>
             </div>
         </div>
     )

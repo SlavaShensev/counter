@@ -4,54 +4,39 @@ import ResultBoard from "./components/result_board";
 import SettingBoard from "./components/setting_board";
 
 function App() {
-    //
-    // const [counter, setCounter] = useState<number>(0)
-    // const setCounterHandler = () => counter <= 4 && setCounter(counter + 1)
-    // const onRedClass = counter === 5 ? 'red' : ''
-    // const stopSetCounter = () => setCounter(0)
-    // const disabledInc = counter === 5
-    // const disabledReset = counter < 5
-    //
-    // return (
-    //     {/*<div className="App">*/}
-    //     {/*    <div>*/}
-    //     {/*        <Scoreboard scoreValue={counter} onRedClass={onRedClass}/>*/}
-    //     {/*        <Button setCounter={setCounterHandler}*/}
-    //     {/*                disabled={disabledInc}*/}
-    //     {/*                title={'inc'}*/}
-    //     {/*        />*/}
-    //     {/*        <Button setCounter={stopSetCounter}*/}
-    //     {/*                disabled={disabledReset}*/}
-    //     {/*                title={'reset'}*/}
-    //     {/*        />*/}
-    //     {/*    </div>*/}
-    //     {/*</div>*/}
-    //
-    // );
 
-    const [value, setValue] = useState(0)
+    const [valueStart, setValueStart] = useState(0)
+
+    const [valueMax, setValueMax] = useState(0)
+
+    console.log(valueMax)
 
     const setting = (maxValue: number, startValue: number) => {
-        setValue(startValue)
+        setValueStart(startValue)
+        setValueMax(maxValue)
     }
 
     useEffect(()=>{
         const valueUsString = localStorage.getItem('valueCounter')
-        if(valueUsString) {
+        const valueMaxUsString = localStorage.getItem('valueCounter')
+        if(valueUsString && valueMaxUsString) {
             const newValue = JSON.parse(valueUsString)
-            setValue(newValue)
+            const newMaxValue = JSON.parse(valueMaxUsString)
+            setValueStart(newValue)
+            setValueMax(newMaxValue)
         }
     },[])
 
     useEffect(() => {
-        localStorage.setItem('valueCounter', JSON.stringify(value))
-    }, [value])
+        localStorage.setItem('valueCounter', JSON.stringify(valueStart))
+        localStorage.setItem('maxValueCounter', JSON.stringify(valueMax))
+    }, [valueStart, valueMax])
 
     return (
         <div className={'App'}>
-            <SettingBoard setting={setting}/>
-            <ResultBoard value={value}
-                         setValue={setValue}
+            <SettingBoard setting={setting} valueMax={valueMax} valueStart={valueStart} />
+            <ResultBoard value={valueStart}
+                         setValue={setValueStart}
             />
         </div>
     )
