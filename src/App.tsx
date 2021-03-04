@@ -14,19 +14,22 @@ function App() {
     }
 
     useEffect(()=>{
-        const valueUsString = localStorage.getItem('valueCounter')
-        const valueMaxUsString = localStorage.getItem('valueCounter')
-        if(valueUsString && valueMaxUsString) {
-            const newValue = JSON.parse(valueUsString)
-            const newMaxValue = JSON.parse(valueMaxUsString)
-            setValueStart(newValue)
-            setValueMax(newMaxValue)
+        const valueStartString = localStorage.getItem('valueStart')
+        const valueMaxString = localStorage.getItem('valueMax')
+
+        if(valueStartString && valueMaxString) {
+            const valueStartFromLocalStorage = JSON.parse(valueStartString)
+            const valueMaxFromLocalStorage = JSON.parse(valueMaxString)
+
+            setValueStart(valueStartFromLocalStorage)
+            setValueMax(valueMaxFromLocalStorage)
         }
+
     },[])
 
     useEffect(() => {
-        localStorage.setItem('valueCounter', JSON.stringify(valueStart))
-        localStorage.setItem('maxValueCounter', JSON.stringify(valueMax))
+        localStorage.setItem('valueStart', JSON.stringify(valueStart))
+        localStorage.setItem('valueMax', JSON.stringify(valueMax))
     }, [valueStart, valueMax])
 
     return (
