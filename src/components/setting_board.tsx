@@ -1,26 +1,30 @@
-import React, {useState} from "react";
-import { ChangeEvent } from "react";
+import React from "react";
+import {ChangeEvent} from "react";
 import Button from "./battonCounter";
 import '../App.css';
 
 type SettingBoardPropsType = {
     valueStart: number
     valueMax: number
-    setting: (maxValue: number, startValue: number) => void
+    setValueStart: (startValue: number) => void
+    setValueMax: (maxValue: number) => void
+    settingCounter: () => void
 }
 
-const SettingBoard = ({setting, valueStart, valueMax}: SettingBoardPropsType) => {
-    const [maxValueInput, setMaxValueInput] = useState(0)
-    const [startValueInput, setStartValueInput] = useState(0)
+const SettingBoard = ({
+                          valueStart,
+                          valueMax,
+                          setValueStart,
+                          setValueMax,
+                          settingCounter
+                      }: SettingBoardPropsType) => {
     const setMaxValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setMaxValueInput(e.currentTarget.valueAsNumber)
+        setValueMax(e.currentTarget.valueAsNumber)
     }
     const setStartValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setStartValueInput(e.currentTarget.valueAsNumber)
+        setValueStart(e.currentTarget.valueAsNumber)
     }
-    const settingHandler = () => {
-        setting(maxValueInput, startValueInput)
-    }
+    const settingCounterHandler = () => settingCounter()
     return (
         <div className={'settingBoard'}>
             <div className={'settingBoardScreen'}>
@@ -44,9 +48,9 @@ const SettingBoard = ({setting, valueStart, valueMax}: SettingBoardPropsType) =>
                 </div>
             </div>
             <div className={'buttonBoardScreen'}>
-                <div className={'settingButton'} >
+                <div className={'settingButton'}>
                     <Button value={'set'}
-                            callBack={settingHandler}
+                            callBack={settingCounterHandler}
                     />
                 </div>
             </div>

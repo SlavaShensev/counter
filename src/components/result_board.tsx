@@ -4,15 +4,17 @@ import '../App.css';
 
 type ResultBoardPropsType = {
     value: number
-    setValue: (n: number) => void
+    setValueResult: (valueResult: number)=> void
 }
 
-const ResultBoard = ({setValue, value}: ResultBoardPropsType) => {
+const ResultBoard = ({
+                         value, setValueResult
+                     }: ResultBoardPropsType) => {
     const setValueHandler = () => {
-        setValue(value + 1)
+        setValueResult(value + 1)
     }
     const clearValueHandler = () => {
-        setValue(0)
+        setValueResult(0)
         localStorage.clear()
     }
     return (

@@ -6,15 +6,11 @@ import SettingBoard from "./components/setting_board";
 function App() {
 
     const [valueStart, setValueStart] = useState(0)
-
     const [valueMax, setValueMax] = useState(0)
+    const [valueResult, setValueResult] = useState(0)
 
-    console.log(valueMax)
-    console.log(valueStart)
-
-    const setting = (maxValue: number, startValue: number) => {
-        setValueStart(startValue)
-        setValueMax(maxValue)
+    const settingCounter = () => {
+        setValueResult(valueStart)
     }
 
     useEffect(()=>{
@@ -35,9 +31,15 @@ function App() {
 
     return (
         <div className={'App'}>
-            <SettingBoard setting={setting} valueMax={valueMax} valueStart={valueStart} />
-            <ResultBoard value={valueStart}
-                         setValue={setValueStart}
+            <SettingBoard valueMax={valueMax}
+                          valueStart={valueStart}
+                          setValueStart={setValueStart}
+                          setValueMax={setValueMax}
+                          settingCounter={settingCounter}
+
+            />
+            <ResultBoard value={valueResult}
+                         setValueResult={setValueResult}
             />
         </div>
     )
