@@ -4,22 +4,32 @@ import '../App.css';
 
 type ResultBoardPropsType = {
     value: number
-    setValueResult: (valueResult: number)=> void
+    valueMax: number
+    valueResult: number
+    setValueResult: (valueResult: number) => void
 }
 
 const ResultBoard = ({
-                         value, setValueResult
+                         value,
+                         setValueResult,
+                         valueMax,
+                         valueResult
                      }: ResultBoardPropsType) => {
     const setValueHandler = () => {
-        setValueResult(value + 1)
+        if (valueResult < valueMax) {
+            setValueResult(value + 1)
+        }
     }
     const clearValueHandler = () => {
         setValueResult(0)
         localStorage.clear()
     }
     return (
-        <div className={'resultBoard'}>
-            <div className={'resultBoardScreen'}>
+        <
+            div
+            className={'resultBoard'}>
+            < div
+                className={'resultBoardScreen'}>
                 {value}
             </div>
 

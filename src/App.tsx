@@ -40,6 +40,8 @@ function App() {
             />
             <ResultBoard value={valueResult}
                          setValueResult={setValueResult}
+                         valueMax={valueMax}
+                         valueResult={valueResult}
             />
         </div>
     )
