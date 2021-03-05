@@ -1,7 +1,7 @@
 import React from "react";
 import {ChangeEvent} from "react";
-import Button from "./battonCounter";
 import '../App.css';
+import Button from "./BattonCounter";
 
 type SettingBoardPropsType = {
     valueStart: number
@@ -9,6 +9,8 @@ type SettingBoardPropsType = {
     setValueStart: (startValue: number) => void
     setValueMax: (maxValue: number) => void
     settingCounter: () => void
+    statusDisabled: boolean
+    error: string
 }
 
 const SettingBoard = ({
@@ -16,7 +18,9 @@ const SettingBoard = ({
                           valueMax,
                           setValueStart,
                           setValueMax,
-                          settingCounter
+                          settingCounter,
+                          statusDisabled,
+                          error
                       }: SettingBoardPropsType) => {
     const setMaxValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setValueMax(e.currentTarget.valueAsNumber)
@@ -35,6 +39,7 @@ const SettingBoard = ({
                     <input type={'number'}
                            value={valueMax}
                            onChange={setMaxValueInputHandler}
+                           className={error}
                     />
                 </div>
                 <div className={'startValue'}>
@@ -44,6 +49,7 @@ const SettingBoard = ({
                     <input type={'number'}
                            value={valueStart}
                            onChange={setStartValueInputHandler}
+                           className={error}
                     />
                 </div>
             </div>
@@ -51,12 +57,12 @@ const SettingBoard = ({
                 <div className={'settingButton'}>
                     <Button value={'set'}
                             callBack={settingCounterHandler}
+                            statusDisabled={statusDisabled}
                     />
                 </div>
             </div>
         </div>
     )
-
 }
 
 export default SettingBoard

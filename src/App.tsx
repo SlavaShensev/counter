@@ -1,36 +1,39 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import ResultBoard from "./components/result_board";
-import SettingBoard from "./components/setting_board";
+import SettingBoard from './components/Setting_board';
+import ResultBoard from "./components/Result_board";
 
 function App() {
-
     const [valueStart, setValueStart] = useState(0)
     const [valueMax, setValueMax] = useState(0)
     const [valueResult, setValueResult] = useState(0)
-
     const settingCounter = () => {
         setValueResult(valueStart)
     }
-
-    useEffect(()=>{
+    useEffect(() => {
         const valueStartString = localStorage.getItem('valueStart')
         const valueMaxString = localStorage.getItem('valueMax')
-
-        if(valueStartString && valueMaxString) {
+        if (valueStartString && valueMaxString) {
             const valueStartFromLocalStorage = JSON.parse(valueStartString)
             const valueMaxFromLocalStorage = JSON.parse(valueMaxString)
 
             setValueStart(valueStartFromLocalStorage)
             setValueMax(valueMaxFromLocalStorage)
         }
-
-    },[])
-
+    }, [])
     useEffect(() => {
         localStorage.setItem('valueStart', JSON.stringify(valueStart))
         localStorage.setItem('valueMax', JSON.stringify(valueMax))
     }, [valueStart, valueMax])
+
+
+    const setButtonDisabled = true
+
+    const incAndResButtonDisabled = true
+
+    const andValueClass = 'red'
+
+    const error = 'red'
 
     return (
         <div className={'App'}>
@@ -39,12 +42,16 @@ function App() {
                           setValueStart={setValueStart}
                           setValueMax={setValueMax}
                           settingCounter={settingCounter}
+                          statusDisabled={setButtonDisabled}
+                          error={error}
 
             />
             <ResultBoard value={valueResult}
                          setValueResult={setValueResult}
                          valueMax={valueMax}
                          valueResult={valueResult}
+                         statusDisabled={incAndResButtonDisabled}
+                         andValueClass={andValueClass}
             />
         </div>
     )

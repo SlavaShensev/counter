@@ -1,19 +1,23 @@
 import React from "react";
-import Button from "./battonCounter";
 import '../App.css';
+import Button from "./BattonCounter";
 
 type ResultBoardPropsType = {
     value: number
     valueMax: number
     valueResult: number
     setValueResult: (valueResult: number) => void
+    statusDisabled: boolean
+    andValueClass: string  // ---???
 }
 
 const ResultBoard = ({
                          value,
                          setValueResult,
                          valueMax,
-                         valueResult
+                         valueResult,
+                         statusDisabled,
+                         andValueClass
                      }: ResultBoardPropsType) => {
     const setValueHandler = () => {
         if (valueResult < valueMax) {
@@ -29,23 +33,25 @@ const ResultBoard = ({
             div
             className={'resultBoard'}>
             < div
-                className={'resultBoardScreen'}>
+                className={'resultBoardScreen' + ' ' + andValueClass}>
                 {value}
             </div>
-
             <div className={'buttonsBoardScreen'}>
                 <div className={'incButtonBoardScreen'}>
-                    <Button value={'inc'} callBack={setValueHandler}/>
+                    <Button value={'inc'}
+                            callBack={setValueHandler}
+                            statusDisabled={statusDisabled}
+                    />
                 </div>
-
                 <div className={'resButtonBoardScreen'}>
-                    <Button value={'reset'} callBack={clearValueHandler}/>
+                    <Button value={'reset'}
+                            callBack={clearValueHandler}
+                            statusDisabled={statusDisabled}
+                    />
                 </div>
-
             </div>
         </div>
     )
-
 }
 
 export default ResultBoard
