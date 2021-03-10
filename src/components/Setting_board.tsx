@@ -9,7 +9,7 @@ type SettingBoardPropsType = {
     setValueStart: (startValue: number) => void
     setValueMax: (maxValue: number) => void
     settingCounter: () => void
-    statusDisabled: boolean
+    statusDisabled: () => boolean
     error: string
 }
 

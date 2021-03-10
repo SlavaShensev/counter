@@ -7,7 +7,8 @@ type ResultBoardPropsType = {
     valueMax: number
     valueResult: number
     setValueResult: (valueResult: number) => void
-    statusDisabled: boolean
+    incButtonDisabled: () => boolean
+    resButtonDisabled: () => boolean
     andValueClass: string  // ---???
 }
 
@@ -16,7 +17,8 @@ const ResultBoard = ({
                          setValueResult,
                          valueMax,
                          valueResult,
-                         statusDisabled,
+                         incButtonDisabled,
+                         resButtonDisabled,
                          andValueClass
                      }: ResultBoardPropsType) => {
     const setValueHandler = () => {
@@ -40,13 +42,13 @@ const ResultBoard = ({
                 <div className={'incButtonBoardScreen'}>
                     <Button value={'inc'}
                             callBack={setValueHandler}
-                            statusDisabled={statusDisabled}
+                            statusDisabled={incButtonDisabled}
                     />
                 </div>
                 <div className={'resButtonBoardScreen'}>
                     <Button value={'reset'}
                             callBack={clearValueHandler}
-                            statusDisabled={statusDisabled}
+                            statusDisabled={resButtonDisabled}
                     />
                 </div>
             </div>

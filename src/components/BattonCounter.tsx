@@ -2,14 +2,15 @@ import React from "react";
 
 type ButtonPropsType = {
     value: string
-    statusDisabled: boolean
+    statusDisabled: () => boolean
     callBack: () => void
 }
 
 const Button = ({callBack, value, statusDisabled}: ButtonPropsType) => {
+
     return <button
         onClick={callBack}
-        disabled={statusDisabled}
+        disabled={statusDisabled()}
     >
         {value}
     </button>

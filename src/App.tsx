@@ -27,9 +27,30 @@ function App() {
     }, [valueStart, valueMax])
 
 
-    const setButtonDisabled = true
+    const setButtonDisabled = () => {
+       if(valueMax > valueStart) {
+           if (valueMax && valueStart >= 0) {
+               return false
+           }
+       }
+       return true
+    }
 
-    const incAndResButtonDisabled = true
+    const incButtonDisabled = () => {
+        if(valueMax === 1) {
+                return false
+        }
+        return true
+    }
+
+    const resButtonDisabled = () => {
+
+        if(valueMax === 2) {
+                return true
+        }
+
+        return false
+    }
 
     const andValueClass = 'red'
 
@@ -50,7 +71,8 @@ function App() {
                          setValueResult={setValueResult}
                          valueMax={valueMax}
                          valueResult={valueResult}
-                         statusDisabled={incAndResButtonDisabled}
+                         incButtonDisabled={incButtonDisabled}
+                         resButtonDisabled={resButtonDisabled}
                          andValueClass={andValueClass}
             />
         </div>
