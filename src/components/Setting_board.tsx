@@ -10,7 +10,8 @@ type SettingBoardPropsType = {
     setValueMax: (maxValue: number) => void
     settingCounter: () => void
     statusDisabled: () => boolean
-    error: string
+    errorValueMax: string
+    errorValueStart: string
 }
 
 const SettingBoard = ({
@@ -20,7 +21,8 @@ const SettingBoard = ({
                           setValueMax,
                           settingCounter,
                           statusDisabled,
-                          error
+                          errorValueMax,
+                          errorValueStart
                       }: SettingBoardPropsType) => {
     const setMaxValueInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setValueMax(e.currentTarget.valueAsNumber)
@@ -39,7 +41,7 @@ const SettingBoard = ({
                     <input type={'number'}
                            value={valueMax}
                            onChange={setMaxValueInputHandler}
-                           className={error}
+                           className={errorValueMax}
                     />
                 </div>
                 <div className={'startValue'}>
@@ -49,7 +51,7 @@ const SettingBoard = ({
                     <input type={'number'}
                            value={valueStart}
                            onChange={setStartValueInputHandler}
-                           className={error}
+                           className={errorValueStart}
                     />
                 </div>
             </div>

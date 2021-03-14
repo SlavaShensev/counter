@@ -51,9 +51,9 @@ function App() {
         return true
     }
 
-    const andValueClass = 'red'
+    const errorValueMax = (valueMax < 0) ? 'red' : ''
 
-    const error = 'red'
+    const errorValueStart = (valueMax < valueStart || valueStart < 0) ? 'red' : ''
 
     return (
         <div className={'App'}>
@@ -63,16 +63,17 @@ function App() {
                           setValueMax={setValueMax}
                           settingCounter={settingCounter}
                           statusDisabled={setButtonDisabled}
-                          error={error}
+                          errorValueMax={errorValueMax}
+                          errorValueStart={errorValueStart}
 
             />
             <ResultBoard value={valueResult}
                          setValueResult={setValueResult}
                          valueMax={valueMax}
+                         valueStart={valueStart}
                          valueResult={valueResult}
                          incButtonDisabled={incButtonDisabled}
                          resButtonDisabled={resButtonDisabled}
-                         andValueClass={andValueClass}
             />
         </div>
     )

@@ -5,21 +5,21 @@ import Button from "./BattonCounter";
 type ResultBoardPropsType = {
     value: number
     valueMax: number
+    valueStart: number
     valueResult: number
     setValueResult: (valueResult: number) => void
     incButtonDisabled: () => boolean
     resButtonDisabled: () => boolean
-    andValueClass: string  // ---???
 }
 
 const ResultBoard = ({
                          value,
                          setValueResult,
                          valueMax,
+                         valueStart,
                          valueResult,
                          incButtonDisabled,
                          resButtonDisabled,
-                         andValueClass
                      }: ResultBoardPropsType) => {
     const setValueHandler = () => {
         if (valueResult < valueMax) {
@@ -30,13 +30,23 @@ const ResultBoard = ({
         setValueResult(0)
         localStorage.clear()
     }
+
+    const valueHandler = () => {
+        if ((valueMax < valueStart) || ((valueMax || valueStart) < 0)) {
+            return <div className={'redTextError'}>
+                incorrect value
+            </div>
+        }
+        return value
+    }
+
     return (
         <
             div
             className={'resultBoard'}>
-            < div
-                className={'resultBoardScreen' + ' ' + andValueClass}>
-                {value}
+            <div
+                className={'resultBoardScreen'}>
+                {valueHandler()}
             </div>
             <div className={'buttonsBoardScreen'}>
                 <div className={'incButtonBoardScreen'}>

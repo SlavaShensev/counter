@@ -2,6 +2,10 @@ body {
     background: #fff;
 }
 
+textarea:focus, input:focus{
+    outline: none;
+}
+
 .App {
     color: black;
     display: grid;
@@ -106,4 +110,8 @@ body {
 .red {
     color: red;
     border: 2px solid red;
+}
+
+.redTextError {
+    color: red;
 }
