@@ -10,6 +10,7 @@ function App() {
     const settingCounter = () => {
         setValueResult(valueStart)
     }
+
     useEffect(() => {
         const valueStartString = localStorage.getItem('valueStart')
         const valueMaxString = localStorage.getItem('valueMax')
@@ -21,35 +22,33 @@ function App() {
             setValueMax(valueMaxFromLocalStorage)
         }
     }, [])
+
     useEffect(() => {
         localStorage.setItem('valueStart', JSON.stringify(valueStart))
         localStorage.setItem('valueMax', JSON.stringify(valueMax))
     }, [valueStart, valueMax])
 
-
     const setButtonDisabled = () => {
-       if(valueMax > valueStart) {
-           if (valueMax && valueStart >= 0) {
-               return false
-           }
-       }
-       return true
+        if (valueMax > valueStart) {
+            if (valueMax && valueStart >= 0) {
+                return false
+            }
+        }
+        return true
     }
 
     const incButtonDisabled = () => {
-        if(valueMax === 1) {
-                return false
+        if (valueMax > valueResult) {
+            return false
         }
         return true
     }
 
     const resButtonDisabled = () => {
-
-        if(valueMax === 2) {
-                return true
+        if (valueMax === valueResult) {
+            return false
         }
-
-        return false
+        return true
     }
 
     const andValueClass = 'red'
